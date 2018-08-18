@@ -1,2 +1,2 @@
 # QMFWidgets
-QMFWidgets
+for Qt
