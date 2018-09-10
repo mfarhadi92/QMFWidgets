@@ -69,6 +69,11 @@ void QMFWaitDialog::initWindowFlag()
     setAttribute(Qt::WA_PaintOnScreen);
 }
 
+void QMFWaitDialog::stop()
+{
+    timer->stop();
+}
+
 void QMFWaitDialog::initWaitBar()
 {
     int windowWidth = barCount*(barSize.width()+barSpace)+20;
@@ -88,7 +93,8 @@ void QMFWaitDialog::initWaitBar()
 
 void QMFWaitDialog::start()
 {
-    initWaitBar();
+    show();
+//    initWaitBar();
     timer->start();
 }
 

@@ -44,6 +44,7 @@ public:
     void setBackgroundBar(QColor backgroundBar);
     void setTitle(QString title_);
     void initWindowFlag();
+    void stop();
     void start();
     inline void setBarSize(QSize barSize_ , quint8 barSpace_ ){ barSize = barSize_ ;  barSpace = barSpace_ ; initWaitBar(); }
     inline void initWaitBar();
