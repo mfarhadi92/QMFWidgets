@@ -5,6 +5,8 @@
 #include <QTimer>
 
 class QMFMessageBox;
+class QMFWaitDialog;
+
 namespace Ui {
 class QMFExampleWidget;
 }
@@ -13,6 +15,7 @@ class QMFExampleWidget : public QMainWindow
 {
     Q_OBJECT
     QMFMessageBox   *messageBox;
+    QMFWaitDialog   *waitDialog;
     QTimer          timer;
 
 public:
@@ -25,6 +28,8 @@ private slots:
     void on_btn_warningAlert_clicked();
     void on_btn_processingAlert_clicked();
     void timeout_event();
+
+    void on_btn_waitDialog_clicked();
 
 private:
     Ui::QMFExampleWidget *ui;

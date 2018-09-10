@@ -1,6 +1,7 @@
 #include "qmfexamplewidget.h"
 #include "ui_qmfexamplewidget.h"
 #include "../qmfmessagebox.h"
+#include "../qmfwaitdialog.h"
 #include "../structer.h"
 
 QMFExampleWidget::QMFExampleWidget(QWidget *parent) :
@@ -8,7 +9,8 @@ QMFExampleWidget::QMFExampleWidget(QWidget *parent) :
     ui(new Ui::QMFExampleWidget)
 {
     ui->setupUi(this);
-    messageBox = new QMFMessageBox(0);
+    messageBox  = new QMFMessageBox(0);
+    waitDialog  = new QMFWaitDialog(0);
     ui->progressBar->setTitle(QString("%1 {{value}}%").arg("test title"));
     connect(&timer,SIGNAL(timeout()),this,SLOT(timeout_event()));
     timer.start(1000);
@@ -66,4 +68,26 @@ void QMFExampleWidget::timeout_event()
     else
         ui->progressBar->setThemeColor(QColor("#5fd026"),QColor("white"));
     ui->progressBar->setValue(value);
+}
+
+#include <QDebug>
+
+void QMFExampleWidget::on_btn_waitDialog_clicked()
+{
+    static quint8 currentCallIdx = 0;
+    QStringList titles;
+    QList<QColor> colors;
+
+    titles << "Please wait" << "Checking permission" << "Deleting file" << "Shutting down";
+    colors << QColor("#2196f3") << QColor("#2a15d6") << QColor("#ff5722") << QColor("#009688");
+
+    waitDialog->setTitle(titles.at(currentCallIdx%titles.count()));
+    waitDialog->setBackgroundBar(colors.at(currentCallIdx%colors.count()));
+    waitDialog->start();
+    QTimer::singleShot(3000,[this](){
+        waitDialog->stop();
+        waitDialog->hide();
+    });
+    currentCallIdx ++;
+
 }
