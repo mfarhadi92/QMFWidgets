@@ -1,6 +1,7 @@
 #include "qmfexamplewidget.h"
 #include "ui_qmfexamplewidget.h"
 #include "../qmfmessagebox.h"
+#include "../qmfnotification.h"
 #include "../qmfwaitdialog.h"
 #include "../structer.h"
 
@@ -11,6 +12,8 @@ QMFExampleWidget::QMFExampleWidget(QWidget *parent) :
     ui->setupUi(this);
     messageBox  = new QMFMessageBox(0);
     waitDialog  = new QMFWaitDialog(0);
+    notificationDialog  = new QMFNotification(0);
+
     ui->progressBar->setTitle(QString("%1 {{value}}%").arg("test title"));
     connect(&timer,SIGNAL(timeout()),this,SLOT(timeout_event()));
     timer.start(1000);
@@ -90,4 +93,15 @@ void QMFExampleWidget::on_btn_waitDialog_clicked()
     });
     currentCallIdx ++;
 
+}
+
+void QMFExampleWidget::on_btn_notification_clicked()
+{
+    static quint32 statusID = QtMFW::processing;
+    if( statusID > QtMFW::empty )
+        statusID    = QtMFW::processing;
+
+    notificationDialog->setNotification(QString("Test Header %1").arg(statusID),"test header is running! please wait ...",
+                                        QPixmap(":/image/res/images/extra/signal.png"),(QtMFW::Status)statusID,5000);
+    statusID ++;
 }

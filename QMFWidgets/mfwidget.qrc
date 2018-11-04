@@ -3,5 +3,6 @@
         <file>res/images/status/error.png</file>
         <file>res/images/status/success.png</file>
         <file>res/images/status/warning.png</file>
+        <file>res/images/extra/signal.png</file>
     </qresource>
 </RCC>

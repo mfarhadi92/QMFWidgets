@@ -6,6 +6,7 @@
 
 class QMFMessageBox;
 class QMFWaitDialog;
+class QMFNotification;
 
 namespace Ui {
 class QMFExampleWidget;
@@ -16,6 +17,7 @@ class QMFExampleWidget : public QMainWindow
     Q_OBJECT
     QMFMessageBox   *messageBox;
     QMFWaitDialog   *waitDialog;
+    QMFNotification *notificationDialog;
     QTimer          timer;
 
 public:
@@ -30,6 +32,8 @@ private slots:
     void timeout_event();
 
     void on_btn_waitDialog_clicked();
+
+    void on_btn_notification_clicked();
 
 private:
     Ui::QMFExampleWidget *ui;
