@@ -9,4 +9,4 @@ custom widgets for Qt :
   
   ![Screenshot Dark](QMFWidgets/QMFWidgets.png)
 
-  ![Screenshot Dark] (QMFWidgets/QMFWidgets_2.png)
+  ![Screenshot Dark](QMFWidgets/QMFWidgets_2.png)
