@@ -47,7 +47,7 @@ public:
     void stop();
     void start();
     inline void setBarSize(QSize barSize_ , quint8 barSpace_ ){ barSize = barSize_ ;  barSpace = barSpace_ ; initWaitBar(); }
-    inline void initWaitBar();
+    void initWaitBar();
     ~QMFWaitDialog();
 
 private slots:
