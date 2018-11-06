@@ -1,6 +1,19 @@
 #ifndef QMFNOTIFICATION_H
 #define QMFNOTIFICATION_H
-
+/****************************************************************************
+**
+** Copyright (C) 2018 Mehdi Farhadi <mfarhadi.ece.iut.ac.ir>
+** Contact: 09134223351
+**
+** Download URL : https://github.com/mfarhadi92/QMFWidgets
+**
+** Widgets:
+**  MessageBox ==> (QMFMessageBox)
+**  ProgressBar ==> (QMFProgressBar)
+**  Notification ==> (QMFNotification)
+**
+** Licensed for distribution under the GPL version3
+****************************************************************************/
 #include <QWidget>
 #include "structer.h"
 
